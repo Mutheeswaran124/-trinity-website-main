@@ -1,0 +1,90 @@
+import React from 'react';
+import { Users, Target, Award, Globe, Building, TrendingUp, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';   
+
+const partners = [
+  { name: 'AWS', href: '#aws', logo: 'https://aws.amazon.com/architecture/icons/' },
+  { name: 'Odoo', href: '#odoo', logo: 'https://brand.databricks.com/databricks-logo' },
+  { name: 'Databricks', href: '#databricks', logo: 'https://brand.databricks.com/databricks-logo' },
+  { name: 'Azure', href: '#azure', logo: 'https://www.freelogovectors.net/azure-databricks-logo/' },
+  { name: 'Fivetran', href: '#fivetran', logo: 'https://fivetran.com/blog/fivetran-extends-private-networking-to-support-databricks' },
+  { name: 'dbt Labs', href: '#dbt', logo: 'https://www.databricks.com/partners/dbtlabs' },
+];
+
+const highlights = [
+  { number: '500+', label: 'Projects Delivered', icon: TrendingUp },
+  { number: '9+ Years', label: 'Experience', icon: Users },
+  { number: '10+', label: 'Countries Served', icon: Globe },
+  { number: '100+', label: 'Data Experts', icon: Award },
+];
+
+const MegaMenuAbout = () => {
+  const navigate = useNavigate(); 
+  return (
+    <div className="grid grid-cols-9 gap-6 p-6 bg-white rounded-lg shadow-lg">
+      {/* Left Section - Company Overview */}
+      <div className="col-span-3 space-y-6">
+        <h3 className="text-2xl font-bold text-gray-900">Why Trinity Technology Solutions?</h3>
+        <p className="text-gray-600 text-sm">
+          Empowering businesses with cutting-edge <b>data engineering, analytics, and AI solutions</b>.
+        </p>
+        <ul className="space-y-3">
+          <li className="flex items-center space-x-3">
+            <Target className="h-5 w-5 text-blue-600" />
+            <span className="text-sm font-medium">Founded in 2020</span>
+          </li>
+          <li className="flex items-center space-x-3">
+            <Award className="h-5 w-5 text-blue-600" />
+            <span className="text-sm font-medium">Databricks Official Partner</span>
+          </li>
+          <li className="flex items-center space-x-3">
+            <Building className="h-5 w-5 text-blue-600" />
+            <span className="text-sm font-medium">Global Presence in 10+ Countries</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* Center Section - Technology Partners */}
+      <div className="col-span-3">
+        <h3 className="text-xl font-bold text-gray-900 mb-3">Technology Partners</h3>
+        <div className="grid grid-cols-2 gap-4">
+          {partners.map((partner) => (
+            <div key={partner.name} className="flex items-center space-x-3 p-3 bg-gray-100 rounded-md">
+              <img src={partner.logo} alt={partner.name} className="h-8 w-8 object-contain" />
+              <span className="text-sm font-medium">{partner.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right Section - Impact Metrics */}
+      <div className="col-span-3">
+        <h3 className="text-xl font-bold text-gray-900 mb-3">Our Impact</h3>
+        <div className="grid grid-cols-2 gap-4">
+          {highlights.map((highlight) => (
+            <div key={highlight.label} className="bg-white rounded-md p-4 border hover:shadow-md">
+              <div className="flex items-center space-x-3 mb-2">
+                <highlight.icon className="h-5 w-5 text-blue-600" />
+                <div className="text-xl font-bold">{highlight.number}</div>
+              </div>
+              <p className="text-sm text-gray-600">{highlight.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Call-to-Action */}
+      <div className="col-span-9 text-center mt-6">
+        <button
+          onClick={() => navigate('/our-story')}
+          className="inline-flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors group"
+        >
+          <span>Learn More</span>
+          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default MegaMenuAbout;

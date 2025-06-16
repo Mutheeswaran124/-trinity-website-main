@@ -1,0 +1,17 @@
+{
+  "name": "project-bolt-sb1-uc746r6y",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "framer-motion": "^12.12.2",
+    "react": "^19.1.0",
+    "react-scroll": "^1.9.3"
+  }
+}
