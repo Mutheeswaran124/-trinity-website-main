@@ -1,21 +1,53 @@
 import React from 'react';
 import { Users, Target, Award, Globe, Building, TrendingUp, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';   
+import { useNavigate } from 'react-router-dom';
 
 const partners = [
-  { name: 'AWS', href: '#aws', logo: 'https://aws.amazon.com/architecture/icons/' },
-  { name: 'Odoo', href: '#odoo', logo: 'https://brand.databricks.com/databricks-logo' },
-  { name: 'Databricks', href: '#databricks', logo: 'https://brand.databricks.com/databricks-logo' },
-  { name: 'Azure', href: '#azure', logo: 'https://www.freelogovectors.net/azure-databricks-logo/' },
-  { name: 'Fivetran', href: '#fivetran', logo: 'https://fivetran.com/blog/fivetran-extends-private-networking-to-support-databricks' },
-  { name: 'dbt Labs', href: '#dbt', logo: 'https://www.databricks.com/partners/dbtlabs' },
+  { name: 'AWS', href: '#aws', logo: 'https://download.logo.wine/logo/Amazon_Web_Services/Amazon_Web_Services-Logo.wine.png' },
+  { name: 'Odoo', href: '#odoo', logo: 'https://cdn4.iconfinder.com/data/icons/logos-3/640/odoo_logo_rgb-512.png' },
+  { name: 'Databricks', href: '#databricks', logo: 'https://images.seeklogo.com/logo-png/61/1/databricks-icon-logo-png_seeklogo-611588.png' },
+  { name: 'Azure', href: '#azure', logo: 'https://www.svgrepo.com/show/303372/azure-1-logo.svg' },
+  { name: 'Fivetran', href: '#fivetran', logo: 'https://images.icon-icons.com/2699/PNG/512/fivetran_logo_icon_170149.png' },
+  { name: 'dbt Labs', href: '#dbt', logo: 'https://seeklogo.com/images/D/dbt-logo-500AB0BAA7-seeklogo.com.png' },
 ];
 
 const highlights = [
-  { number: '500+', label: 'Projects Delivered', icon: TrendingUp },
-  { number: '9+ Years', label: 'Experience', icon: Users },
-  { number: '10+', label: 'Countries Served', icon: Globe },
-  { number: '100+', label: 'Data Experts', icon: Award },
+  {
+    number: '500+',
+    label: 'Projects Delivered',
+    icon: TrendingUp,
+    bg: 'from-green-400/80 to-teal-400/80',
+    image: '/images/impact1.jpg',
+    border: 'border-green-300',
+    shadow: 'shadow-green-200',
+  },
+  {
+    number: '9+ Years',
+    label: 'Experience',
+    icon: Users,
+    bg: 'from-blue-400/80 to-indigo-400/80',
+    image: '/images/impact2.jpg',
+    border: 'border-blue-300',
+    shadow: 'shadow-blue-200',
+  },
+  {
+    number: '10+',
+    label: 'Countries Served',
+    icon: Globe,
+    bg: 'from-purple-400/80 to-pink-400/80',
+    image: '/images/impact3.jpg',
+    border: 'border-purple-300',
+    shadow: 'shadow-purple-200',
+  },
+  {
+    number: '100+',
+    label: 'Data Experts',
+    icon: Award,
+    bg: 'from-orange-400/80 to-red-400/80',
+    image: '/images/impact4.jpg',
+    border: 'border-orange-300',
+    shadow: 'shadow-orange-200',
+  },
 ];
 
 const MegaMenuAbout = () => {
@@ -39,7 +71,7 @@ const MegaMenuAbout = () => {
           </li>
           <li className="flex items-center space-x-3">
             <Building className="h-5 w-5 text-blue-600" />
-            <span className="text-sm font-medium">Global Presence in 10+ Countries</span>
+            <span className="text-sm font-medium">Global Presence in 4+ Continent</span>
           </li>
         </ul>
       </div>

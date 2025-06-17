@@ -91,7 +91,6 @@ const Hero: React.FC = () => {
                     </motion.div>
                 </div>
 
-               {/* Footer Section */}
 <div className="mt-8 md:mt-14 -mb-4"> 
     <div className="text-center mb-4 md:mb-8">
         <p className="text-black font-bold text-lg sm:text-2xl md:text-2xl">
@@ -101,7 +100,6 @@ const Hero: React.FC = () => {
 </div>
             </div>
 
-          {/* ✅ Full-width Moving Logo Carousel */}
 <section className="logo-carousel overflow-hidden relative mt-4 md:mt-8 pt-4 md:pt-6 pb-4 md:pb-8 w-screen bg-white">
     <div className="max-w-none mx-auto">
         <div className="logo-track flex items-center gap-10 md:gap-20 w-max px-4">

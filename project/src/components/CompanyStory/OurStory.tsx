@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Users, Award, Target, Building2, Lightbulb, Heart, Globe, Users as TeamIcon, Database, Cloud, BarChart3, Brain, Monitor, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 
 interface Slide {
@@ -57,7 +56,7 @@ const slides: Slide[] = [
 
 const founders = [
   {
-    name: "Dr. Sarah Chen",
+    name: "Muthees",
     role: "CEO & Co-Founder",
     bio: "Former Director of Data Engineering at Microsoft Azure. PhD in Computer Science from Stanford. 15+ years experience building large-scale data systems.",
     image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -76,7 +75,7 @@ const founders = [
     ]
   },
   {
-    name: "Michael Rodriguez",
+    name: "Agil",
     role: "CTO & Co-Founder", 
     bio: "Ex-Principal Engineer at Google Cloud Platform. Expert in distributed systems and machine learning infrastructure. Author of 3 technical books.",
     image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -95,7 +94,7 @@ const founders = [
     ]
   },
   {
-    name: "Dr. Amara Okafor",
+    name: "Balaji",
     role: "Chief Data Officer & Co-Founder",
     bio: "Former Lead Data Scientist at Netflix. PhD in Statistics from MIT. Pioneer in real-time analytics and predictive modeling for enterprise applications.",
     image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -139,93 +138,65 @@ const coreValues = [
 ];
 
 const OurStory: React.FC = () => {
-  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
     if (!isPlaying) return;
-
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, [isPlaying]);
 
-  const handleBackClick = () => {
-    navigate('/');
-  };
+  const goToSlide = (index: number) => setCurrentSlide(index);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const togglePlayPause = () => setIsPlaying(!isPlaying);
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
-
- // ...existing code...
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="bg-white shadow-sm border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <button
-              onClick={handleBackClick}
-              className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors duration-200"
-            >
-              <ArrowLeft className="h-5 w-5" />
-              <span className="font-medium">Back to Home</span>
-            </button>
-            {/* Removed "Our Story" heading */}
-            <div className="w-24"></div> {/* Spacer for alignment */}
+            <div></div>
+            <div className="w-24"></div>
           </div>
         </div>
       </div>
 
-      {/* Hero Section */}
-      <div className="bg-gray-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-blue-400">
-              Our Journey
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-              From a small team of passionate data experts in 2020 to a global leader 
-              with four companies across four continents by 2025.
-            </p>
-            <div className="flex flex-wrap justify-center gap-12 mt-12">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">500+</div>
-                <div className="text-gray-400 font-medium">Projects Delivered</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">100+</div>
-                <div className="text-gray-400 font-medium">Data Experts</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">4</div>
-                <div className="text-gray-400 font-medium">Continents</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white">10+</div>
-                <div className="text-gray-400 font-medium">Countries</div>
-              </div>
+      {/* Hero Section - Styled like your uploaded image */}
+      <div className="bg-[#1a3085] text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-6">
+            <span className="bg-blue-800/80 text-blue-100 px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-2 mx-auto">
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 17.75l-6.172 3.245 1.179-6.873L2 9.505l6.908-1.004L12 2.25l3.092 6.251L22 9.505l-4.007 4.617 1.179 6.873z"/></svg>
+              Company Story
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            The Trinity Company<br className="hidden md:block" /> Story
+          </h1>
+          <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+            From a small team of passionate data experts in 2020 to a global leader with four companies across four continents by 2025.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex items-center bg-blue-900/80 rounded-lg px-5 py-2 text-base font-medium text-blue-100 gap-2">
+              <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 17.75l-6.172 3.245 1.179-6.873L2 9.505l6.908-1.004L12 2.25l3.092 6.251L22 9.505l-4.007 4.617 1.179 6.873z"/></svg>
+              98% Success Rate
+            </div>
+            <div className="flex items-center bg-blue-900/80 rounded-lg px-5 py-2 text-base font-medium text-blue-100 gap-2">
+              <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/></svg>
+              500+ Projects Delivered
+            </div>
+            <div className="flex items-center bg-blue-900/80 rounded-lg px-5 py-2 text-base font-medium text-blue-100 gap-2">
+              <svg className="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              24/7 Support
             </div>
           </div>
         </div>
       </div>
-      {/* ...rest of the code... */}
 
       {/* Company Timeline Slideshow */}
       <div className="py-20 bg-gray-50">
@@ -384,7 +355,7 @@ const OurStory: React.FC = () => {
         </div>
       </div>
 
-      {/* Founders Section - Qlik-inspired Design */}
+      {/* Founders Section */}
       <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -401,7 +372,7 @@ const OurStory: React.FC = () => {
               <div key={founder.name} className="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div className={`grid grid-cols-1 lg:grid-cols-2 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                   {/* Image Section */}
-                  <div className={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} relative`}>
                     <div className="h-80 lg:h-full">
                       <div
                         className="w-full h-full bg-cover bg-center"
@@ -412,7 +383,7 @@ const OurStory: React.FC = () => {
                   </div>
 
                   {/* Content Section */}
-                  <div className={`p-8 lg:p-12 flex flex-col justify-center ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                  <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} p-8 lg:p-12 flex flex-col justify-center`}>
                     <div className="space-y-6">
                       <div>
                         <h3 className="text-3xl font-bold text-gray-900 mb-2">
@@ -486,7 +457,7 @@ const OurStory: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {coreValues.map((value, index) => (
+            {coreValues.map((value) => (
               <div 
                 key={value.title}
                 className="group text-center p-8 bg-gray-50 rounded-lg border border-gray-200 hover:shadow-lg transition-all duration-300 hover:border-gray-300"
