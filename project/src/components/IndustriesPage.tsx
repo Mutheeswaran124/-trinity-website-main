@@ -214,9 +214,9 @@ const IndustriesPage = () => {
               Enterprise-Grade Solutions
             </span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Transform Your Business with Our<br className="hidden md:block" /> Services
-          </h1>
+         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">
+  Transform Your Business with Our<br className="hidden md:block" /> Services
+</h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
             Comprehensive technology solutions designed to accelerate your growth, optimize operations, and drive innovation across every aspect of your business.
           </p>
@@ -294,11 +294,7 @@ const IndustriesPage = () => {
                     </div>
                   </div>
                 </div>
-                
-                <button className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                  <span>Explore {industry.title} Solutions</span>
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </button>
+                {/* Explore Button Removed */}
               </div>
 
               {/* Image */}

@@ -28,7 +28,20 @@ const resources = [
   { icon: BookOpen, title: 'Data Scientist’s Guide to Databricks', type: 'eBook' }
 ];
 
-const MegaMenuInsights = () => {
+const MegaMenuInsights = ({ onClose }: { onClose?: () => void }) => {
+  const handleExploreClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const section = document.getElementById('insights');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      if (onClose) onClose();
+    } else {
+      // fallback: if not on the insights page, use window.location.hash
+      window.location.hash = '#insights';
+      if (onClose) onClose();
+    }
+  };
+
   return (
     <div className="grid grid-cols-12 gap-6 p-6 bg-gray-50 rounded-xl shadow-md w-full">
       
@@ -58,10 +71,14 @@ const MegaMenuInsights = () => {
         <img src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Report Cover"
              className="w-full h-40 object-cover rounded-lg shadow-sm mb-4" />
         <div className="mt-4 flex items-center justify-between">
-          <a href="#download-report" className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition-all">
-            <span>Download Report</span>
+          <button
+            onClick={handleExploreClick}
+            className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition-all"
+            type="button"
+          >
+            <span>Explore Casestudies</span>
             <ArrowRight className="h-4 w-4 ml-2" />
-          </a>
+          </button>
           <a href="#all-reports" className="text-blue-600 text-sm font-semibold hover:text-blue-700">View All Reports →</a>
         </div>
       </div>

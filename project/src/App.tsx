@@ -6,8 +6,8 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 
 // Sections
+import TestimonialCard from './components/sections/TestimonialsCard';
 import About from './components/sections/About';
-import Careers from './components/sections/Careers';
 import Contact from './components/sections/Contact';
 import GlobalPresence from './components/sections/GlobalPresence';
 import Hero from './components/sections/Hero';
@@ -34,13 +34,13 @@ function HomePage() {
       <Header />
       <main>
         <Hero />
+        <TestimonialCard />
         <About />
         <Services />
         <TechStack />
         <Industries />
         <GlobalPresence />
         <Insights />
-        <Careers />
         <Contact />
       </main>
       <Footer />
@@ -54,7 +54,6 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/our-story" element={<OurStory />} />
-        {/* FIX: Use /industries to match MegaMenuIndustries links */}
         <Route path="/industries" element={<IndustriesPage />} />
         <Route
           path="/services-portal"

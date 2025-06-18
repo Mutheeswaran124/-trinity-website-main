@@ -11,42 +11,35 @@ const partners = [
   { name: 'dbt Labs', href: '#dbt', logo: 'https://seeklogo.com/images/D/dbt-logo-500AB0BAA7-seeklogo.com.png' },
 ];
 
+// Use visually distinct images for each highlight
 const highlights = [
   {
-    number: '500+',
+    number: '50+',
     label: 'Projects Delivered',
     icon: TrendingUp,
-    bg: 'from-green-400/80 to-teal-400/80',
-    image: '/images/impact1.jpg',
-    border: 'border-green-300',
-    shadow: 'shadow-green-200',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80', // cityscape
+    textColor: 'text-white',
   },
   {
-    number: '9+ Years',
+    number: '5+ Years',
     label: 'Experience',
     icon: Users,
-    bg: 'from-blue-400/80 to-indigo-400/80',
-    image: '/images/impact2.jpg',
-    border: 'border-blue-300',
-    shadow: 'shadow-blue-200',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80', // team
+    textColor: 'text-white',
   },
   {
-    number: '10+',
+    number: '4+',
     label: 'Countries Served',
     icon: Globe,
-    bg: 'from-purple-400/80 to-pink-400/80',
-    image: '/images/impact3.jpg',
-    border: 'border-purple-300',
-    shadow: 'shadow-purple-200',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80', // world map
+    textColor: 'text-white',
   },
   {
-    number: '100+',
+    number: '50+',
     label: 'Data Experts',
     icon: Award,
-    bg: 'from-orange-400/80 to-red-400/80',
-    image: '/images/impact4.jpg',
-    border: 'border-orange-300',
-    shadow: 'shadow-orange-200',
+    image: 'https://www.shutterstock.com/image-photo/analyst-working-business-analytics-data-600nw-1857484450.jpg', // award
+    textColor: 'text-white',
   },
 ];
 
@@ -89,19 +82,31 @@ const MegaMenuAbout = () => {
         </div>
       </div>
 
-      {/* Right Section - Impact Metrics */}
-      <div className="col-span-3">
-        <h3 className="text-xl font-bold text-gray-900 mb-3">Our Impact</h3>
-        <div className="grid grid-cols-2 gap-4">
-          {highlights.map((highlight) => (
-            <div key={highlight.label} className="bg-white rounded-md p-4 border hover:shadow-md">
-              <div className="flex items-center space-x-3 mb-2">
-                <highlight.icon className="h-5 w-5 text-blue-600" />
-                <div className="text-xl font-bold">{highlight.number}</div>
+      {/* Right Section - Impact Metrics with Individual Background Images */}
+      <div className="col-span-3 relative rounded-md overflow-hidden">
+        <div className="relative z-10 p-1">
+          <h3 className="text-xl font-bold text-gray-900 mb-3">Our Impact</h3>
+          <div className="grid grid-cols-2 gap-4">
+            {highlights.map((highlight) => (
+              <div
+                key={highlight.label}
+                className={`relative rounded-md p-4 border hover:shadow-md flex flex-col items-start justify-end min-h-[120px] bg-white overflow-hidden`}
+                style={{
+                  backgroundImage: `url('${highlight.image}')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
+                {/* Overlay for readability, very little blur */}
+                <div className="absolute inset-0 bg-black/20 z-0 rounded-md" />
+                <div className={`relative z-10 flex items-center space-x-3 mb-2 ${highlight.textColor}`}>
+                  <highlight.icon className="h-5 w-5" />
+                  <div className="text-xl font-bold">{highlight.number}</div>
+                </div>
+                <p className={`relative z-10 text-sm font-semibold ${highlight.textColor}`}>{highlight.label}</p>
               </div>
-              <p className="text-sm text-gray-600">{highlight.label}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 

@@ -1,7 +1,15 @@
 import React from 'react';
 import { Cloud, Database, Globe, Server, ArrowRight, CheckCircle, Zap, Box, Code, Layers } from 'lucide-react';
 
-const MegaMenuTechStack = () => {
+const MegaMenuTechStack = ({ onClose }: { onClose?: () => void }) => {
+  const handleExploreClick = () => {
+    const section = document.getElementById('tech-stack');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      if (onClose) onClose(); // Close dropdown if parent passes onClose
+    }
+  };
+
   const techCategories = [
     {
       title: 'Cloud & Infrastructure',
@@ -33,7 +41,6 @@ const MegaMenuTechStack = () => {
 
   return (
     <div className="grid grid-cols-12 gap-6 p-6 bg-white rounded-lg shadow-sm border border-gray-100">
-      
       {/* Left Navigation */}
       <div className="col-span-4">
         <h3 className="text-sm font-semibold text-blue-600 mb-4 uppercase tracking-wide">Tech Stack</h3>
@@ -84,7 +91,11 @@ const MegaMenuTechStack = () => {
         </div>
         
         <div className="flex items-center justify-between">
-          <button className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors duration-200">
+          <button
+            className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors duration-200"
+            onClick={handleExploreClick}
+            type="button"
+          >
             <span>Explore Tech Stack</span>
             <ArrowRight className="h-4 w-4 ml-2" />
           </button>

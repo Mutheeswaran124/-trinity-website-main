@@ -203,7 +203,7 @@ const ServicesPage = () => {
             </div>
             <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
               <TrendingUp className="h-5 w-5 mr-2 text-green-400" />
-              <span className="text-sm">500+ Projects Delivered</span>
+              <span className="text-sm">50+ Projects Delivered</span>
             </div>
             <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
               <Clock className="h-5 w-5 mr-2 text-blue-400" />

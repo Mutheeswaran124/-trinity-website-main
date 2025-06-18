@@ -59,7 +59,7 @@ const founders = [
     name: "Muthees",
     role: "CEO & Co-Founder",
     bio: "Former Director of Data Engineering at Microsoft Azure. PhD in Computer Science from Stanford. 15+ years experience building large-scale data systems.",
-    image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "https://www.shutterstock.com/image-photo/confident-smiling-business-man-professional-600nw-1486805669.jpg",
     expertise: ["Data Architecture", "Cloud Computing", "Team Leadership"],
     services: [
       {
@@ -78,7 +78,7 @@ const founders = [
     name: "Agil",
     role: "CTO & Co-Founder", 
     bio: "Ex-Principal Engineer at Google Cloud Platform. Expert in distributed systems and machine learning infrastructure. Author of 3 technical books.",
-    image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "https://www.shutterstock.com/image-photo/confident-smiling-business-man-professional-600nw-1486805669.jpg",
     expertise: ["Machine Learning", "Distributed Systems", "Innovation"],
     services: [
       {
@@ -97,7 +97,7 @@ const founders = [
     name: "Balaji",
     role: "Chief Data Officer & Co-Founder",
     bio: "Former Lead Data Scientist at Netflix. PhD in Statistics from MIT. Pioneer in real-time analytics and predictive modeling for enterprise applications.",
-    image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "https://www.shutterstock.com/image-photo/confident-smiling-business-man-professional-600nw-1486805669.jpg",
     expertise: ["Data Science", "Analytics", "Business Intelligence"],
     services: [
       {
@@ -170,14 +170,16 @@ const OurStory: React.FC = () => {
       <div className="bg-[#1a3085] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-6">
-            <span className="bg-blue-800/80 text-blue-100 px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-2 mx-auto">
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 17.75l-6.172 3.245 1.179-6.873L2 9.505l6.908-1.004L12 2.25l3.092 6.251L22 9.505l-4.007 4.617 1.179 6.873z"/></svg>
-              Company Story
-            </span>
+           <span className="bg-blue-800/80 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-2 mx-auto">
+  <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path d="M12 17.75l-6.172 3.245 1.179-6.873L2 9.505l6.908-1.004L12 2.25l3.092 6.251L22 9.505l-4.007 4.617 1.179 6.873z"/>
+  </svg>
+  Company Story
+</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            The Trinity Company<br className="hidden md:block" /> Story
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">
+  The Trinity Company<br className="hidden md:block" /> Story
+</h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
             From a small team of passionate data experts in 2020 to a global leader with four companies across four continents by 2025.
           </p>
@@ -188,7 +190,7 @@ const OurStory: React.FC = () => {
             </div>
             <div className="flex items-center bg-blue-900/80 rounded-lg px-5 py-2 text-base font-medium text-blue-100 gap-2">
               <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/></svg>
-              500+ Projects Delivered
+              50+ Projects Delivered
             </div>
             <div className="flex items-center bg-blue-900/80 rounded-lg px-5 py-2 text-base font-medium text-blue-100 gap-2">
               <svg className="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
