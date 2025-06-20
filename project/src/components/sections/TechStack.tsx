@@ -1,5 +1,5 @@
 import React from 'react';
-import Section from '../ui/Section';
+import Section from '../ui /Section';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const TechStack = () => {
@@ -34,11 +34,11 @@ const TechStack = () => {
       logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
       description: 'Comprehensive cloud platform offering computing power, storage, and content delivery.'
     },
-   {
-  name: 'Odoo',
-  logo: 'https://cdn4.iconfinder.com/data/icons/logos-3/640/odoo_logo_rgb-512.png',
-  description: 'Open-source business management software for ERP, CRM, accounting, e-commerce, inventory, and more.'
-}
+    {
+      name: 'Odoo',
+      logo: 'https://cdn4.iconfinder.com/data/icons/logos-3/640/odoo_logo_rgb-512.png',
+      description: 'Open-source business management software for ERP, CRM, accounting, e-commerce, inventory, and more.'
+    }
   ];
 
   return (
@@ -46,9 +46,17 @@ const TechStack = () => {
       id="tech-stack" 
       title="Our Technology Stack"
       subtitle="Cutting-edge technologies powering our data solutions"
+      className="bg-white text-black relative overflow-hidden"
     >
+      {/* Blurred animated background blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-40 left-40 w-80 h-80 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-blob animation-delay-4000"></div>
+      </div>
+
       {/* Technology Logos Grid */}
-      <div className="flex flex-wrap justify-center gap-8">
+      <div className="flex flex-wrap justify-center gap-8 relative z-10">
         {technologies.map((tech, index) => (
           <div
             key={index}
@@ -68,7 +76,7 @@ const TechStack = () => {
       </div>
 
       {/* Databricks Advertisement Section */}
-      <div className="mt-16 flex justify-center">
+      <div className="mt-16 flex justify-center relative z-10">
         <div className="bg-white p-10 rounded-2xl max-w-7xl w-full shadow-lg border border-gray-200 hover:border-black transition-all duration-300">
           <div className="flex flex-col md:flex-row items-center">
             {/* Left Column: Headline, Description, and Buttons */}

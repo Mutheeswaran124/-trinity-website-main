@@ -1,5 +1,5 @@
 import React from 'react';
-import Section from '../ui/Section';
+import Section from '../ui /Section';
 import {
   LineChart,
   Database,
@@ -8,7 +8,7 @@ import {
   Cloud,
   BrainCircuit,
   Users,
-  Briefcase, // Use Briefcase icon for ERP Planning
+  Briefcase,
 } from 'lucide-react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import service from '../../animations/service.lottie?url'
@@ -70,9 +70,16 @@ const Services = () => {
       id="services"
       title="Our Services"
       subtitle="Comprehensive data solutions tailored to your business needs"
-      className="bg-gray-50"
+      className="bg-gray-50 relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 py-8">
+      {/* Blurred animated background blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-40 left-40 w-80 h-80 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-blob animation-delay-4000"></div>
+      </div>
+
+      <div className="container mx-auto px-4 py-8 relative z-10">
         {/* Desktop Layout - Grid with centered animation */}
         <div className="hidden md:block">
           <div className="grid grid-cols-3 gap-6 md:gap-8 relative mx-auto max-w-6xl">

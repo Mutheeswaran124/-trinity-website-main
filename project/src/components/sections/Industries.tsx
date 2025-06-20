@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Section from '../ui/Section';
+import Section from '../ui /Section';
 
 const Industries = () => {
   const [activeTab, setActiveTab] = useState('healthcare');

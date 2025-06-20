@@ -54,7 +54,13 @@ const TestimonialsCard = () => {
 
   return (
     <div className="bg-[#f7f8fc] py-16 px-6 rounded-xl shadow-lg max-w-2xl mx-auto text-center relative overflow-hidden">
-      <div className="transition-all duration-700 ease-in-out">
+      {/* Blurred animated background blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-40 left-40 w-80 h-80 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-blob animation-delay-4000"></div>
+      </div>
+      <div className="transition-all duration-700 ease-in-out relative z-10">
         <img
           src={testimonials[current].src}
           alt={testimonials[current].name}
@@ -66,7 +72,7 @@ const TestimonialsCard = () => {
         <div className="text-blue-900 font-bold text-lg">{testimonials[current].name}</div>
         <div className="text-gray-500 text-sm mb-4">{testimonials[current].designation}</div>
       </div>
-      <div className="flex justify-center gap-2 mt-4">
+      <div className="flex justify-center gap-2 mt-4 relative z-10">
         {testimonials.map((_, idx) => (
           <button
             key={idx}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Menu, X } from 'lucide-react';
-import Logo from '../ui/Logo';
+import Logo from '../ui /Logo';
 
 const MegaMenuAbout = lazy(() => import('../MegaMenus/MegaMenuAbout'));
 const MegaMenuServices = lazy(() => import('../MegaMenus/MegaMenuServices'));
@@ -51,6 +51,8 @@ const Header = () => {
     }
   };
 
+  // ...existing imports and code...
+
   return (
     <>
       <header
@@ -58,7 +60,13 @@ const Header = () => {
           isScrolled ? 'bg-white shadow-md py-4' : 'bg-white py-5'
         }`}
       >
-        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center relative">
+        {/* Blurred animated background blobs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <div className="absolute -top-32 -right-32 w-60 h-60 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+          <div className="absolute -bottom-32 -left-32 w-60 h-60 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+          <div className="absolute top-20 left-40 w-60 h-60 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
+        </div>
+        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center relative z-10">
           <a href="/" className="flex items-center">
             <Logo className="h-10 w-auto" />
           </a>

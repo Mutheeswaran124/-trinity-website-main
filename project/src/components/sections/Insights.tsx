@@ -1,6 +1,6 @@
 import React from 'react';
-import Section from '../ui/Section';
-import Card, { CardContent, CardTitle, CardDescription, CardImage } from '../ui/Card';
+import Section from '../ui /Section';
+import Card, { CardContent, CardTitle, CardDescription, CardImage } from '../ui /Card';
 
 const insights = [
   {
@@ -53,15 +53,23 @@ const insights = [
   }
 ];
 
+
 const Insights = () => {
   return (
     <Section 
       id="insights" 
       title="Insights & Resources"
       subtitle="Stay updated with the latest trends, insights, and resources in data analytics"
+      className="relative overflow-hidden"
     >
+      {/* Blurred animated background blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-40 left-40 w-80 h-80 bg-pink-400 rounded-full mix-blend-multiply filter blur-2xl opacity-15 animate-blob animation-delay-4000"></div>
+      </div>
       {/* Insights Cards */}
-      <div className="grid lg:grid-cols-3 gap-8 mb-16">
+      <div className="grid lg:grid-cols-3 gap-8 mb-16 relative z-10">
         {insights.map((insight, index) => (
           <Card key={index} hover className="h-full">
             <CardImage 
