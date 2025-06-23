@@ -93,7 +93,7 @@ const Industries = () => {
 
   const scrollToCard = (index: number) => {
     if (carouselRef.current) {
-      const cardWidth = 400;
+      const cardWidth = 320; // Reduced from 400 to 320
       const scrollPosition = index * cardWidth;
       carouselRef.current.scrollTo({
         left: scrollPosition,
@@ -135,7 +135,7 @@ const Industries = () => {
     const handleScroll = () => {
       if (carouselRef.current) {
         const scrollLeft = carouselRef.current.scrollLeft;
-        const cardWidth = 400;
+        const cardWidth = 320;
         const newIndex = Math.round(scrollLeft / cardWidth);
         setCurrentIndex(newIndex);
       }
@@ -149,46 +149,46 @@ const Industries = () => {
   }, []);
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-5 animate-pulse animation-delay-4000"></div>
+        <div className="absolute -top-40 -right-40 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-5 animate-pulse animation-delay-4000"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Industries We
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Transform</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Delivering cutting-edge solutions across diverse sectors with data-driven insights and innovative technology
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Delivering cutting-edge solutions across diverse sectors with data-driven insights and innovative technology.
           </p>
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="flex justify-center gap-4 mb-6">
           <button
             onClick={handlePrev}
-            className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-100"
+            className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition hover:scale-110 border border-gray-100"
           >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
+            <ChevronLeft className="w-5 h-5 text-gray-600" />
           </button>
           <button
             onClick={handleNext}
-            className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-100"
+            className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition hover:scale-110 border border-gray-100"
           >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
+            <ChevronRight className="w-5 h-5 text-gray-600" />
           </button>
         </div>
 
         {/* Cards Carousel */}
         <div
           ref={carouselRef}
-          className="flex gap-8 overflow-x-auto scrollbar-hide pb-8 cursor-grab active:cursor-grabbing"
+          className="flex gap-6 overflow-x-auto scrollbar-hide pb-6 cursor-grab active:cursor-grabbing"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
@@ -198,54 +198,38 @@ const Industries = () => {
           {industries.map((industry, index) => (
             <div
               key={industry.id}
-              className={`min-w-[380px] h-[600px] rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 cursor-pointer group relative overflow-hidden ${
+              className={`min-w-[300px] h-[480px] rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 hover:-translate-y-2 cursor-pointer group relative overflow-hidden ${
                 index === currentIndex ? 'ring-2 ring-blue-500 ring-opacity-50' : ''
               }`}
               style={{
                 backgroundImage: `url(${industry.image})`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
+                backgroundPosition: 'center'
               }}
             >
-              {/* Dark overlay for text readability */}
+              {/* Dark overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/90 group-hover:via-black/50 group-hover:to-black/30 transition-all duration-500"></div>
-              
+
               {/* Card Content */}
-              <div className="relative z-10 h-full flex flex-col justify-between p-8 text-white">
-                {/* Top Section - Category */}
-                <div className="flex justify-between items-start">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                    <span className="text-sm font-medium text-white/90">{industry.category}</span>
-                  </div>
-                  <div className="w-2 h-2 bg-white/60 rounded-full"></div>
+              <div className="relative z-10 h-full flex flex-col justify-between p-6 text-white space-y-4">
+                {/* Top */}
+                <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-white/90 self-start">
+                  {industry.category}
                 </div>
 
-                {/* Bottom Section - Main Content */}
-                <div className="space-y-6">
-                  {/* Title */}
-                  <div>
-                    <h3 className="text-3xl font-bold text-white mb-3 leading-tight">
-                      {industry.name}
-                    </h3>
-                    <p className="text-white/90 text-lg leading-relaxed">
-                      {industry.description}
-                    </p>
+                {/* Bottom */}
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold">{industry.name}</h3>
+                  <p className="text-white/90 text-sm">{industry.description}</p>
+
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-xs">
+                    <h4 className="font-semibold mb-2">Success Story</h4>
+                    <p>{industry.caseStudy}</p>
                   </div>
 
-                  {/* Case Study */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <h4 className="font-semibold text-white mb-3 flex items-center text-lg">
-                      <span className="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                      Success Story
-                    </h4>
-                    <p className="text-white/90 text-sm leading-relaxed">{industry.caseStudy}</p>
-                  </div>
-
-                  {/* Action Button */}
-                  <button className="flex items-center justify-center gap-3 bg-white/20 backdrop-blur-sm text-white px-6 py-4 rounded-2xl hover:bg-white/30 transition-all duration-300 transform hover:scale-105 group/btn border border-white/30 w-full">
-                    <span className="font-semibold text-lg">Learn More</span>
-                    <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                  <button className="w-full flex justify-center items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-xl hover:bg-white/30 transition transform hover:scale-105 border border-white/30">
+                    <span className="font-semibold text-sm">Learn More</span>
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
@@ -253,16 +237,14 @@ const Industries = () => {
           ))}
         </div>
 
-        {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-8">
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-6">
           {industries.map((_, index) => (
             <button
               key={index}
               onClick={() => scrollToCard(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? 'bg-blue-600 scale-125'
-                  : 'bg-gray-300 hover:bg-gray-400'
+              className={`w-2.5 h-2.5 rounded-full transition ${
+                index === currentIndex ? 'bg-blue-600 scale-110' : 'bg-gray-300 hover:bg-gray-400'
               }`}
             />
           ))}
