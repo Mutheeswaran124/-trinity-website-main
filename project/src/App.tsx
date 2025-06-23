@@ -15,8 +15,6 @@ import Industries from './components/sections/Industries';
 import Insights from './components/sections/Insights';
 import Services from './components/sections/Services';
 import TechStack from './components/sections/TechStack';
-
-// MegaMenus
 import MegaMenuServices from './components/MegaMenus/MegaMenuServices';
 
 // Pages
@@ -24,7 +22,6 @@ import OurStory from './components/CompanyStory/OurStory';
 import ServicesPage from './components/Services/ServicesPage';
 import IndustriesPage from './components/IndustriesPage';
 
-// Styles
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -41,7 +38,7 @@ function HomePage() {
         <Industries />
         <GlobalPresence />
         <Insights />
-        <Contact />
+        <Contact /> {/* This is your contact section on the homepage */}
       </main>
       <Footer />
     </>
@@ -69,6 +66,7 @@ function App() {
           }
         />
         <Route path="/services" element={<ServicesPage />} />
+        {/* No /contact route needed */}
       </Routes>
     </Router>
   );
