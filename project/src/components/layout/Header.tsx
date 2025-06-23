@@ -1,9 +1,9 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Menu, X } from 'lucide-react';
-import TrinityLogo from '../../assets/trinity-logo.png'; // ✅ Correct, clean path
+import TrinityLogo from '../../Assets/trinity-logo.png';
 
 const MegaMenuAbout = lazy(() => import('../MegaMenus/MegaMenuAbout'));
-const MegaMenuServices = lazy(() => import('../MegaMenus/MegaMenuServices'));
+import MegaMenuServices from '../MegaMenus/MegaMenuServices';
 const MegaMenuTechStack = lazy(() => import('../MegaMenus/MegaMenuTechStack'));
 const MegaMenuIndustries = lazy(() => import('../MegaMenus/MegaMenuIndustries'));
 const MegaMenuInsights = lazy(() => import('../MegaMenus/MegaMenuInsights'));
@@ -55,10 +55,10 @@ const Header = () => {
     <>
       <header
         className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md py-4' : 'bg-white py-5'
+          isScrolled ? 'bg-white shadow-md py-2' : 'bg-white py-3'
         }`}
       >
-        {/* Animated Background Blobs */}
+        {/* Background Blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <div className="absolute -top-32 -right-32 w-60 h-60 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
           <div className="absolute -bottom-32 -left-32 w-60 h-60 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
@@ -67,8 +67,7 @@ const Header = () => {
 
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center relative z-10">
           <a href="/" className="flex items-center">
-            <img src={TrinityLogo} alt="Trinity Logo" className="h-14 md:h-16 w-auto" />
-
+            <img src={TrinityLogo} alt="Trinity Logo" className="h-12 md:h-14 w-auto" />
           </a>
 
           {/* Desktop Navigation */}

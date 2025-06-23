@@ -1,5 +1,5 @@
 import React from 'react';
-import TrinityLogo from '../../assets/trinity-logo.png';
+import TrinityLogo from '../../Assets/trinity-logo.png';
 import { MapPin, Phone, Mail, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
