@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Menu, X } from 'lucide-react';
-import Logo from '../ui /Logo';
+import TrinityLogo from '../../assets/trinity-logo.png'; // ✅ Correct, clean path
 
 const MegaMenuAbout = lazy(() => import('../MegaMenus/MegaMenuAbout'));
 const MegaMenuServices = lazy(() => import('../MegaMenus/MegaMenuServices'));
@@ -51,8 +51,6 @@ const Header = () => {
     }
   };
 
-  // ...existing imports and code...
-
   return (
     <>
       <header
@@ -60,18 +58,20 @@ const Header = () => {
           isScrolled ? 'bg-white shadow-md py-4' : 'bg-white py-5'
         }`}
       >
-        {/* Blurred animated background blobs */}
+        {/* Animated Background Blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <div className="absolute -top-32 -right-32 w-60 h-60 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
           <div className="absolute -bottom-32 -left-32 w-60 h-60 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
           <div className="absolute top-20 left-40 w-60 h-60 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
         </div>
+
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center relative z-10">
           <a href="/" className="flex items-center">
-            <Logo className="h-10 w-auto" />
+            <img src={TrinityLogo} alt="Trinity Logo" className="h-14 md:h-16 w-auto" />
+
           </a>
 
-          {/* Navigation Center */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 ml-auto">
             {navLinks.map((link) => (
               <div
@@ -79,11 +79,13 @@ const Header = () => {
                 className="relative"
                 onMouseEnter={() => setActiveMenu(link.key)}
               >
-                <button className={`font-semibold transition-colors text-base py-2 px-1 ${
-                  activeMenu === link.key 
-                    ? 'text-blue-600 border-b-2 border-blue-600' 
-                    : 'text-black hover:text-blue-600'
-                }`}>
+                <button
+                  className={`font-semibold transition-colors text-base py-2 px-1 ${
+                    activeMenu === link.key
+                      ? 'text-blue-600 border-b-2 border-blue-600'
+                      : 'text-black hover:text-blue-600'
+                  }`}
+                >
                   {link.name}
                 </button>
               </div>
@@ -92,27 +94,26 @@ const Header = () => {
 
           {/* Contact Us Button */}
           <a
-            href="#contact-us"
+            href="#contact"
             className="hidden md:inline-block font-semibold bg-blue-600 text-white px-6 py-2 rounded-md transition-colors hover:bg-blue-700 text-base ml-6"
           >
             Contact Us
           </a>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <button className="md:hidden ml-2" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={28} className="text-blue-600" /> : <Menu size={28} className="text-blue-600" />}
           </button>
         </div>
       </header>
 
-      {/* Full Screen Mega Menu Overlay */}
+      {/* Mega Menu Overlay */}
       {activeMenu && (
-        <div 
+        <div
           className="fixed inset-0 z-40 bg-black bg-opacity-20 backdrop-blur-sm"
           onClick={() => setActiveMenu(null)}
         >
-          {/* Mega Menu Content */}
-          <div 
+          <div
             className="absolute top-20 left-0 right-0 bg-white shadow-2xl border-t border-gray-200"
             onMouseEnter={() => setActiveMenu(activeMenu)}
             onMouseLeave={() => setActiveMenu(null)}

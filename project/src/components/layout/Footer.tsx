@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../ui /Logo';
+import TrinityLogo from '../../assets/trinity-logo.png';
 import { MapPin, Phone, Mail, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => {
@@ -9,22 +9,19 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <Logo className="h-10 w-auto text-white mb-4" />
+            <img src={TrinityLogo} alt="Trinity Logo" className="h-14 w-auto text-white mb-4" />
             <p className="text-gray-400 mb-4">
               Empowering data-driven decisions across the globe with innovative analytics solutions.
             </p>
             <div className="flex space-x-4">
-              <div className="flex space-x-4">
-  <a 
-    href="https://www.linkedin.com/company/trinity-technology-solutions"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-gray-400 hover:text-white transition-colors"
-  >
-    <Linkedin size={20} />
-  </a>  
-</div>
-
+              <a
+                href="https://www.linkedin.com/company/trinity-technology-solutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Linkedin size={20} />
+              </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Twitter size={20} />
               </a>
@@ -76,7 +73,9 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="text-blue-500 mr-2 flex-shrink-0" />
-                <a href="mailto:info@trinitytechsolutions.com" className="text-gray-400 hover:text-white transition-colors">info@trinitytechsolutions.com</a>
+                <a href="mailto:info@trinitytechsolutions.com" className="text-gray-400 hover:text-white transition-colors">
+                  info@trinitytechsolutions.com
+                </a>
               </li>
             </ul>
           </div>
@@ -84,14 +83,16 @@ const Footer = () => {
           {/* Newsletter */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
-            <p className="text-gray-400 mb-4">Subscribe to our newsletter for the latest insights and trends in data analytics.</p>
+            <p className="text-gray-400 mb-4">
+              Subscribe to our newsletter for the latest insights and trends in data analytics.
+            </p>
             <form className="space-y-2">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
+              <input
+                type="email"
+                placeholder="Your email address"
                 className="w-full px-4 py-2 rounded-md bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <button 
+              <button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition-colors"
               >
@@ -101,6 +102,7 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Footer bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
           <p>&copy; {new Date().getFullYear()} Trinity Technology Solution LLC. All rights reserved.</p>
         </div>
