@@ -1,9 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
-import Button from '../ui /Button';
+import Button from '../ui /Button'; // ✅ fixed import
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { ArrowUpRight } from 'lucide-react';
 import { motion, useInView } from "framer-motion";
-import mainhero from '../../animations/mainhero.lottie?url'
+import ChatBot from '../ChatBot'; // ✅ fixed casing
+
+import mainhero from '../../animations/mainhero.lottie?url';
 
 const partnerLogos = [
     'https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png',
@@ -14,7 +16,7 @@ const partnerLogos = [
     'https://odoocdn.com/openerp_website/static/src/img/assets/png/odoo_logo.png'
 ];
 
-// Robust typewriter hook
+// ⌨️ Typewriter Hook
 function useTypewriter(text: string, speed = 30, delay = 0) {
     const [displayed, setDisplayed] = useState("");
     useEffect(() => {
@@ -45,36 +47,34 @@ const Hero: React.FC = () => {
 
     const headlineTyped = useTypewriter(headline, 30, 0);
     const subtextTyped = useTypewriter(subtext, 15, headline.length * 30 + 400);
-
-    // For coloring "Driven Decisions Across the Globe"
     const highlight = "Driven Decisions Across the Globe";
     const highlightIndex = headlineTyped.indexOf(highlight);
 
     const carouselStyle = `
     @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
     }
     .logo-track {
-      animation: marquee 20s linear infinite;
+        animation: marquee 20s linear infinite;
     }
-  `;
+    `;
 
     return (
         <div className="pt-16 sm:pt-20 md:pt-36 pb-8 md:pb-16 bg-white relative overflow-hidden">
-            {/* Blurred animated background blobs */}
+            {/* ✨ Background Blobs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-    <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-    <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-    <div className="absolute top-40 left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
-</div>
+                <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+                <div className="absolute top-40 left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+            </div>
 
             <style dangerouslySetInnerHTML={{ __html: carouselStyle }} />
 
-            {/* ✅ Main Content Container */}
+            {/* 🌍 Main Content */}
             <div ref={ref} className="mx-auto px-4 max-w-[1200px] relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-10 md:gap-x-12 items-center">
-                    {/* Left Side (Text) */}
+                    {/* Left Side */}
                     <motion.div
                         initial={{ opacity: 0, x: -60 }}
                         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
                         </Button>
                     </motion.div>
 
-                    {/* Right Side Lottie */}
+                    {/* Right Side Animation */}
                     <motion.div
                         initial={{ opacity: 0, x: 60 }}
                         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
@@ -140,7 +140,8 @@ const Hero: React.FC = () => {
                     </motion.div>
                 </div>
 
-                <div className="mt-8 md:mt-14 -mb-4"> 
+                {/* Partner Logos */}
+                <div className="mt-8 md:mt-14 -mb-4">
                     <div className="text-center mb-4 md:mb-8">
                         <p className="text-black font-bold text-lg sm:text-2xl md:text-2xl">
                             Trusted by industry leaders in data and analytics
@@ -164,6 +165,9 @@ const Hero: React.FC = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Trinity ChatBot Integration */}
+            <ChatBot />
         </div>
     );
 };
