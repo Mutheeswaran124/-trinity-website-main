@@ -93,7 +93,7 @@ const Industries = () => {
 
   const scrollToCard = (index: number) => {
     if (carouselRef.current) {
-      const cardWidth = 320; // Reduced from 400 to 320
+      const cardWidth = 320;
       const scrollPosition = index * cardWidth;
       carouselRef.current.scrollTo({
         left: scrollPosition,
@@ -150,7 +150,7 @@ const Industries = () => {
 
   return (
     <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-      {/* Background Elements */}
+      {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
         <div className="absolute -bottom-40 -left-40 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-2000"></div>
@@ -169,23 +169,17 @@ const Industries = () => {
           </p>
         </div>
 
-        {/* Navigation Buttons */}
+        {/* Arrows */}
         <div className="flex justify-center gap-4 mb-6">
-          <button
-            onClick={handlePrev}
-            className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition hover:scale-110 border border-gray-100"
-          >
+          <button onClick={handlePrev} className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition hover:scale-110 border border-gray-100">
             <ChevronLeft className="w-5 h-5 text-gray-600" />
           </button>
-          <button
-            onClick={handleNext}
-            className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition hover:scale-110 border border-gray-100"
-          >
+          <button onClick={handleNext} className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition hover:scale-110 border border-gray-100">
             <ChevronRight className="w-5 h-5 text-gray-600" />
           </button>
         </div>
 
-        {/* Cards Carousel */}
+        {/* Carousel */}
         <div
           ref={carouselRef}
           className="flex gap-6 overflow-x-auto scrollbar-hide pb-6 cursor-grab active:cursor-grabbing"
@@ -199,7 +193,7 @@ const Industries = () => {
             <div
               key={industry.id}
               className={`min-w-[300px] h-[480px] rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 hover:-translate-y-2 cursor-pointer group relative overflow-hidden ${
-                index === currentIndex ? 'ring-2 ring-blue-500 ring-opacity-50' : ''
+                index === currentIndex ? 'ring-2 ring-white ring-opacity-50' : ''
               }`}
               style={{
                 backgroundImage: `url(${industry.image})`,
@@ -207,31 +201,29 @@ const Industries = () => {
                 backgroundPosition: 'center'
               }}
             >
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/90 group-hover:via-black/50 group-hover:to-black/30 transition-all duration-500"></div>
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-all duration-500"></div>
 
               {/* Card Content */}
-              <div className="relative z-10 h-full flex flex-col justify-between p-6 text-white space-y-4">
-                {/* Top */}
-                <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-white/90 self-start">
+              <div className="relative z-10 h-full flex flex-col justify-between p-6 text-white font-sans space-y-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-white self-start">
                   {industry.category}
                 </div>
-
-                {/* Bottom */}
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-bold">{industry.name}</h3>
-                  <p className="text-white/90 text-sm">{industry.description}</p>
+  <h3 className="text-2xl font-bold leading-tight text-white">{industry.name}</h3>
+  <p className="text-sm leading-relaxed text-white">{industry.description}</p>
 
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-xs">
-                    <h4 className="font-semibold mb-2">Success Story</h4>
-                    <p>{industry.caseStudy}</p>
-                  </div>
+  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-xs text-white">
+    <h4 className="font-semibold mb-2">Success Story</h4>
+    <p>{industry.caseStudy}</p>
+  </div>
 
-                  <button className="w-full flex justify-center items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-xl hover:bg-white/30 transition transform hover:scale-105 border border-white/30">
-                    <span className="font-semibold text-sm">Learn More</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
+  <button className="w-full flex justify-center items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-xl hover:bg-white/20 transition transform hover:scale-105 border border-white/30">
+    <span className="font-semibold text-sm">Learn More</span>
+    <ArrowRight className="w-4 h-4" />
+  </button>
+</div>
+
               </div>
             </div>
           ))}
