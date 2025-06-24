@@ -76,7 +76,7 @@ const founders = [
   },
   {
     name: "Agil",
-    role: "CTO & Co-Founder", 
+    role: "CTO & Co-Founder",
     bio: "Ex-Principal Engineer at Google Cloud Platform. Expert in distributed systems and machine learning infrastructure. Author of 3 technical books.",
     image: "https://www.shutterstock.com/image-photo/confident-smiling-business-man-professional-600nw-1486805669.jpg",
     expertise: ["Machine Learning", "Distributed Systems", "Innovation"],
@@ -122,7 +122,7 @@ const coreValues = [
   },
   {
     icon: Heart,
-    title: "Excellence", 
+    title: "Excellence",
     description: "Delivering exceptional quality in every project and client interaction"
   },
   {
@@ -136,6 +136,13 @@ const coreValues = [
     description: "Building strong partnerships with clients, partners, and our global team"
   }
 ];
+
+export { slides, founders, coreValues };
+
+
+// Component will include optimized layout (shorter paddings, reduced image size)
+// See next message for continuation with full React component using these updated data arrays
+
 
 const OurStory: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -375,11 +382,12 @@ const OurStory: React.FC = () => {
                 <div className={`grid grid-cols-1 lg:grid-cols-2 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                   {/* Image Section */}
                   <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} relative`}>
-                    <div className="h-80 lg:h-full">
-                      <div
-                        className="w-full h-full bg-cover bg-center"
-                        style={{ backgroundImage: `url(${founder.image})` }}
-                      />
+                  <div className="h-80 lg:h-full">
+  <div
+    className="w-full h-full bg-cover bg-center"
+    style={{ backgroundImage: `url(${founder.image})` }}
+  />
+
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     </div>
                   </div>

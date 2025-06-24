@@ -381,7 +381,7 @@ const GlobalPresence = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
                   {[
                     { label: 'Offices', value: '4', icon: Building },
-                    { label: 'Team', value: '475+', icon: Users },
+                    { label: 'Team', value: '50+', icon: Users },
                     { label: 'Countries', value: '25+', icon: MapPin },
                     { label: 'Uptime', value: '99.9%', icon: Shield }
                   ].map((stat, index) => (
